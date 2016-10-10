@@ -1,0 +1,55 @@
+2016-10-07 17:46:27 ERROR Configuration:51 - Error loading publisherInvalid URL is provided :das.thrift.url. Receiver URL property should take the format : protocol://host:port
+2016-10-07 17:46:27 ERROR Configuration:51 - Error loading publisherInvalid URL is provided :das.thrift.url. Receiver URL property should take the format : protocol://host:port
+2016-10-10 09:55:16 ERROR ThriftClientSample:21 - Timestamp: 1476086116681; Random: 326
+2016-10-10 09:55:16 ERROR DataEndpointConnectionWorker:98 - Thrift exception
+org.wso2.carbon.databridge.agent.exception.DataEndpointAuthenticationException: Thrift exception
+	at org.wso2.carbon.databridge.agent.endpoint.thrift.ThriftDataEndpoint.login(ThriftDataEndpoint.java:49)
+	at org.wso2.carbon.databridge.agent.endpoint.DataEndpointConnectionWorker.connect(DataEndpointConnectionWorker.java:94)
+	at org.wso2.carbon.databridge.agent.endpoint.DataEndpointConnectionWorker.run(DataEndpointConnectionWorker.java:42)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.thrift.transport.TTransportException
+	at org.apache.thrift.transport.TIOStreamTransport.read(TIOStreamTransport.java:132)
+	at org.apache.thrift.transport.TTransport.readAll(TTransport.java:86)
+	at org.apache.thrift.protocol.TBinaryProtocol.readAll(TBinaryProtocol.java:429)
+	at org.apache.thrift.protocol.TBinaryProtocol.readI32(TBinaryProtocol.java:318)
+	at org.apache.thrift.protocol.TBinaryProtocol.readMessageBegin(TBinaryProtocol.java:219)
+	at org.apache.thrift.TServiceClient.receiveBase(TServiceClient.java:69)
+	at org.wso2.carbon.databridge.commons.thrift.service.secure.ThriftSecureEventTransmissionService$Client.recv_connect(ThriftSecureEventTransmissionService.java:110)
+	at org.wso2.carbon.databridge.commons.thrift.service.secure.ThriftSecureEventTransmissionService$Client.connect(ThriftSecureEventTransmissionService.java:96)
+	at org.wso2.carbon.databridge.agent.endpoint.thrift.ThriftDataEndpoint.login(ThriftDataEndpoint.java:45)
+	... 7 more
+2016-10-10 09:55:16 ERROR DataEndpointConnectionWorker:45 - Error while trying to connect to the endpoint. Cannot borrow client for ssl://localhost:7716
+org.wso2.carbon.databridge.agent.exception.DataEndpointAuthenticationException: Cannot borrow client for ssl://localhost:7716
+	at org.wso2.carbon.databridge.agent.endpoint.DataEndpointConnectionWorker.connect(DataEndpointConnectionWorker.java:99)
+	at org.wso2.carbon.databridge.agent.endpoint.DataEndpointConnectionWorker.run(DataEndpointConnectionWorker.java:42)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.wso2.carbon.databridge.agent.exception.DataEndpointAuthenticationException: Thrift exception
+	at org.wso2.carbon.databridge.agent.endpoint.thrift.ThriftDataEndpoint.login(ThriftDataEndpoint.java:49)
+	at org.wso2.carbon.databridge.agent.endpoint.DataEndpointConnectionWorker.connect(DataEndpointConnectionWorker.java:94)
+	... 6 more
+Caused by: org.apache.thrift.transport.TTransportException
+	at org.apache.thrift.transport.TIOStreamTransport.read(TIOStreamTransport.java:132)
+	at org.apache.thrift.transport.TTransport.readAll(TTransport.java:86)
+	at org.apache.thrift.protocol.TBinaryProtocol.readAll(TBinaryProtocol.java:429)
+	at org.apache.thrift.protocol.TBinaryProtocol.readI32(TBinaryProtocol.java:318)
+	at org.apache.thrift.protocol.TBinaryProtocol.readMessageBegin(TBinaryProtocol.java:219)
+	at org.apache.thrift.TServiceClient.receiveBase(TServiceClient.java:69)
+	at org.wso2.carbon.databridge.commons.thrift.service.secure.ThriftSecureEventTransmissionService$Client.recv_connect(ThriftSecureEventTransmissionService.java:110)
+	at org.wso2.carbon.databridge.commons.thrift.service.secure.ThriftSecureEventTransmissionService$Client.connect(ThriftSecureEventTransmissionService.java:96)
+	at org.wso2.carbon.databridge.agent.endpoint.thrift.ThriftDataEndpoint.login(ThriftDataEndpoint.java:45)
+	... 7 more
+2016-10-10 09:55:17 ERROR ThriftClientSample:21 - Timestamp: 1476086117689; Random: 650
+2016-10-10 09:55:18 ERROR ThriftClientSample:21 - Timestamp: 1476086118691; Random: 241
+2016-10-10 09:55:19 ERROR ThriftClientSample:21 - Timestamp: 1476086119694; Random: 385
+2016-10-10 09:55:20 ERROR ThriftClientSample:21 - Timestamp: 1476086120699; Random: 502
+2016-10-10 09:55:21 ERROR ThriftClientSample:21 - Timestamp: 1476086121701; Random: 570
+2016-10-10 09:55:22 ERROR ThriftClientSample:21 - Timestamp: 1476086122705; Random: 512
+2016-10-10 09:55:23 ERROR ThriftClientSample:21 - Timestamp: 1476086123705; Random: 562
