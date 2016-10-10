@@ -62,8 +62,14 @@ public class DASManager {
 	}
 	
 	public void publish(Object[] obja) {
-		Event logEvent = new Event(getEventStreamId(), System.currentTimeMillis(), new Object[] { "external" }, null,
-				obja);
+		try {
+			Event event = new Event(getEventStreamId(), System.currentTimeMillis(), new Object[] { "external" }, null,
+					obja);
+			boolean published = dataPublisher.tryPublish(event);
+			logger.warn("Message was not sent.");
+		} catch (Exception e) {
+			logger.error("Event publishing failed: " + e.getMessage());
+		}
 		
 	}
 }
