@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="NexusIQ.ProjectSettings">
+    <option name="applicationId" value="webgoat601" />
+    <option name="serverUrl" value="http://localhost:8070/" />
+    <option name="username" value="admin" />
+  </component>
+</project>

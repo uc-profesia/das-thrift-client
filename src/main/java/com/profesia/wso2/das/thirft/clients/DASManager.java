@@ -38,15 +38,22 @@ public class DASManager {
 	private final String JAVAX_NET_SLL_TRUSTSTORE= "javax.net.ssl.trustStore";	
 	private final String JAVAX_NET_SLL_TRUSTSTOREPASSWORD= "javax.net.ssl.trustStorePassword";
 	
+	private final String Security_KeyStore_Location= "javax.net.ssl.trustStore";	
+	private final String Security_KeyStore_Password= "javax.net.ssl.trustStorePassword";
 
 	public void init() {
 		labels = ResourceBundle.getBundle(CFG_FILE);
 		AgentHolder.setConfigPath(getProperty(DAS_AGENTS_CONF));
+		
 		System.setProperty("javax.net.ssl.trustStore", getProperty(JAVAX_NET_SLL_TRUSTSTORE));
 		System.setProperty("javax.net.ssl.trustStorePassword", getProperty(JAVAX_NET_SLL_TRUSTSTOREPASSWORD));	
-		this.eventStreamId = DataBridgeCommonsUtils.generateStreamId(DAS_EVENT_STREAM_NAME, DAS_EVENT_STREAM_VERSION);	
+        System.setProperty("Security.KeyStore.Location", getProperty(Security_KeyStore_Location));
+        System.setProperty("Security.KeyStore.Password", getProperty(Security_KeyStore_Password));
+
+        
+        this.eventStreamId = DataBridgeCommonsUtils.generateStreamId(getProperty(DAS_EVENT_STREAM_NAME), getProperty(DAS_EVENT_STREAM_VERSION));	
 		try {
-			dataPublisher = new DataPublisher(getProperty(DAS_THIRFT_URL), DAS_USERNAME, DAS_PASSWORD);
+			dataPublisher = new DataPublisher(getProperty(DAS_THIRFT_URL), getProperty(DAS_USERNAME), getProperty(DAS_PASSWORD));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			logger.error("Error loading publisher: " + e.getMessage());
@@ -63,10 +70,10 @@ public class DASManager {
 	
 	public void publish(Object[] obja) {
 		try {
-			Event event = new Event(getEventStreamId(), System.currentTimeMillis(), new Object[] { "external" }, null,
-					obja);
-			boolean published = dataPublisher.tryPublish(event);
-			logger.warn("Message was not sent.");
+			Event event = new Event();
+			event.setPayloadData(obja);
+			dataPublisher.tryPublish(event);
+			logger.warn("This message has been sent: " + event.toString());
 		} catch (Exception e) {
 			logger.error("Event publishing failed: " + e.getMessage());
 		}
