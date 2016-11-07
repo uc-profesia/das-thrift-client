@@ -1,0 +1,19 @@
+{
+  "streamId": "sample_thrift_stream:1.0.0",
+  "name": "sample_thrift_stream",
+  "version": "1.0.0",
+  "nickName": "sample_thrift_stream",
+  "description": "sample_thrift_stream",
+  "metaData": [],
+  "correlationData": [],
+  "payloadData": [
+    {
+      "name": "timestamp",
+      "type": "LONG"
+    },
+    {
+      "name": "random",
+      "type": "LONG"
+    }
+  ]
+}
