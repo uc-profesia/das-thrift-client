@@ -3,7 +3,6 @@ package com.profesia.wso2.das.thirft.clients;
 import java.util.ResourceBundle;
 
 import org.slf4j.LoggerFactory;
-import org.wso2.carbon.databridge.commons.Event;
 import org.slf4j.Logger;
 
 

@@ -72,6 +72,8 @@ public class DASManager {
 		try {
 			Event event = new Event();
 			event.setPayloadData(obja);
+			event.setStreamId(this.getEventStreamId());
+			event.setTimeStamp(System.currentTimeMillis());
 			dataPublisher.tryPublish(event);
 			logger.warn("This message has been sent: " + event.toString());
 		} catch (Exception e) {
