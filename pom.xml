@@ -4,7 +4,7 @@
 	<groupId>ThriftClient</groupId>
 	<artifactId>ThriftClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-    <!-- new comment -->
+    <!-- new new comment -->
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
