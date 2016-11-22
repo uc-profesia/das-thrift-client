@@ -3,15 +3,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ThriftClient</groupId>
 	<artifactId>ThriftClient</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<!--  adding distribution management for nexus staging -->
-  <distributionManagement>
-    <snapshotRepository>
-    <id>nexus-snapshots</id>
-    <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-  
+	<version>0.0.1</version>
+	<!-- adding distribution management for nexus staging -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://localhost:8081/nexus/content/repositories/private-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -23,18 +23,32 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-		      <plugin>
-		        <groupId>org.sonatype.plugins</groupId>
-		        <artifactId>nexus-staging-maven-plugin</artifactId>
-		        <version>1.6.3</version>
-		        <extensions>true</extensions>
-		        <configuration>
-		              <serverId>nexus-releases</serverId>
-		          <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
-		          <!-- update this to the correct id! -->
-		          <stagingProfileId>48695ba97dbc</stagingProfileId>
-		        </configuration>
-		      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<nexusUrl>http://localhost:8081/nexus</nexusUrl>
+					<serverId>jenkins</serverId>
+					<stagingProfileId>2ece8a05aa07</stagingProfileId>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<pluginRepositories>
