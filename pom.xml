@@ -4,7 +4,14 @@
 	<groupId>ThriftClient</groupId>
 	<artifactId>ThriftClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-    <!-- removed new comment -->
+	
+  <distributionManagement>
+    <snapshotRepository>
+    <id>nexus-snapshots</id>
+    <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
