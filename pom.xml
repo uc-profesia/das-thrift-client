@@ -4,7 +4,7 @@
 	<groupId>ThriftClient</groupId>
 	<artifactId>ThriftClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+	<!--  adding distribution management for nexus staging -->
   <distributionManagement>
     <snapshotRepository>
     <id>nexus-snapshots</id>
